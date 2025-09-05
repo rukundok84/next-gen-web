@@ -24,7 +24,7 @@ export default function NavMenu() {
             }
         ]
     return (
-        <nav className="bg-slate-600 text-white w-full py-3">
+        <nav className="w-full py-3">
             <div className="flex justify-around">
                 {
                     menus.map((menu, index)  => (
@@ -39,7 +39,7 @@ export default function NavMenu() {
 
 function NavItem({ title, href }: MenuTypes ) {
     return (
-        <div className="p-2 font-bold text-[17px] hover:text-gray-300 hover:bg-slate-500 rounded-md">
+        <div className="p-2 font-bold text-[17px] hover:text-gray-600 rounded-md">
             <Link href={href}>{title}</Link>
         </div>
     )
@@ -47,9 +47,11 @@ function NavItem({ title, href }: MenuTypes ) {
 
 function SearchBox(){
     return(
-        <div className="flex justify-center align-middle gap-2 bg-white rounded-md">
-            <input placeholder="Search..." className="text-center border-none outline-none bg-white text-slate-400 rounded-md h-full" type="search" name="" id="" />
-            <span><SearchIcon className="h-full text-slate-400 pr-2 cursor-pointer"/></span>
+        <div className="flex justify-center align-middle gap-2">
+            <div className="border-b-2 border-black">
+                <input placeholder="Search..." className="border-none outline-none bg-white rounded-md text-black h-full" type="search" name="" id="" />
+            </div>
+            <span><SearchIcon className="h-full pr-2 cursor-pointer"/></span>
         </div>
     )
 }
