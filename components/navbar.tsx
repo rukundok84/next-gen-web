@@ -3,7 +3,7 @@ type MenuTypes = {
     title: string;
     href: string;
 }
-import { SearchIcon} from "lucide-react";
+import { SearchIcon } from "lucide-react";
 export default function NavMenu() {
     const menus: {
         title: string;
@@ -24,32 +24,32 @@ export default function NavMenu() {
             }
         ]
     return (
-        <nav className="bg-slate-600 text-white w-full py-3">
+        <nav className=" w-full py-3 shadow">
             <div className="flex justify-around">
                 {
-                    menus.map((menu, index)  => (
-                        <NavItem key={index} title= {menu.title} href={menu.href} />
-                    ) )
+                    menus.map((menu, index) => (
+                        <NavItem key={index} title={menu.title} href={menu.href} />
+                    ))
                 }
-                <SearchBox/>
+                <SearchBox />
             </div>
         </nav>
     )
 }
 
-function NavItem({ title, href }: MenuTypes ) {
+function NavItem({ title, href }: MenuTypes) {
     return (
-        <div className="p-2 font-bold text-[17px] hover:text-gray-300 hover:bg-slate-500 rounded-md">
-            <Link href={href}>{title}</Link>
+        <div className="font-bold text-[17px]">
+            <Link className="hover:text-gray-700 hover:border-b-2" href={href}>{title}</Link>
         </div>
     )
 }
 
-function SearchBox(){
-    return(
-        <div className="flex justify-center align-middle gap-2 bg-white rounded-md">
-            <input placeholder="Search..." className="text-center border-none outline-none bg-white text-slate-400 rounded-md h-full" type="search" name="" id="" />
-            <span><SearchIcon className="h-full text-slate-400 pr-2 cursor-pointer"/></span>
+function SearchBox() {
+    return (
+        <div className="flex justify-center align-middle gap-2 h-[40px] border-b-2 border-black">
+            <input placeholder="Search..." className="border-none outline-none bg-white text-black text-[13px]  rounded-md h-full" type="search" name="" id="" />
+            <span><SearchIcon className="h-full  pr-2 cursor-pointer" /></span>
         </div>
     )
 }
