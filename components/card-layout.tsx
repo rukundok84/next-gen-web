@@ -3,8 +3,10 @@ import { Description } from "@radix-ui/react-dialog"
 import { title } from "process"
 import { Card } from "./ui/card"
 import PostCard from "./card"
-import { GripVertical } from "lucide-react"
+import { GripVertical, Table } from "lucide-react"
 import { useState } from "react"
+import { TableHead, TableRow, TableCell } from "./ui/table"
+import { id } from "zod/v4/locales"
 
 interface Posts {
     title: string
@@ -24,9 +26,8 @@ export default function CardLayout({ posts }: { posts: Posts[] }) {
             <div className="relative min-h-[300px]">
                 {/* Posts Grid */}
                 <div
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-                        view ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                    }`}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${view ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                        }`}
                 >
                     <div className="flex gap-2 justify-around flex-wrap">
                         {posts.map((post) => (
@@ -36,11 +37,31 @@ export default function CardLayout({ posts }: { posts: Posts[] }) {
                 </div>
                 {/* Table View */}
                 <div
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-                        !view ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                    } flex items-center justify-center`}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${!view ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                        } flex items-center justify-center`}
                 >
-                    <span>table</span>
+                    <table className="w-full">
+                        <TableRow>
+                            <TableHead>
+                                Title
+                            </TableHead>
+                            <TableHead>
+                                Description
+                            </TableHead>
+                            <TableHead>
+                                Image
+                            </TableHead>
+                        </TableRow>
+                        {
+                            posts.map(post => (
+                                <TableRow key={post.title}>
+                                    <TableCell>{post.title}</TableCell>
+                                    <TableCell>{post.description}</TableCell>
+                                    <TableCell><img src="demo.jpg" className="py-1 h-[40px]" alt="demo" /></TableCell>
+                                </TableRow>
+                            ))
+                        }
+                    </table>
                 </div>
             </div>
         </div>
