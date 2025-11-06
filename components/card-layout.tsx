@@ -19,7 +19,7 @@ export default function CardLayout({ posts }: { posts: Posts[] }) {
     }
     return (
         <div className="flex flex-col gap-4 px-4 py-5">
-            <div onClick={handleView} className="justify-end align-top flex rounded cursor-pointer bg-gray-100 w-[70px] p-2">
+            <div onClick={handleView} className="justify-end shadow hover:bg-gray-50 align-top flex rounded cursor-pointer bg-gray-100 w-[70px] p-2">
                 <GripVertical />
                 <span>View</span>
             </div>
