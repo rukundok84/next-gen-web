@@ -3,7 +3,15 @@ type MenuTypes = {
     title: string;
     href: string;
 }
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, UserCircle } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 export default function NavMenu() {
     const menus: {
         title: string;
@@ -32,6 +40,13 @@ export default function NavMenu() {
                     ))
                 }
                 <SearchBox />
+                <DropdownMenu>
+                    <DropdownMenuTrigger className="cursor-pointer"><UserCircle className="h-[30px] w-[30px]"/></DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                        <DropdownMenuItem className="cursor-pointer"><Link href="/login">Login</Link></DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer"><Link href="/signup">Signup</Link></DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </div>
         </nav>
     )

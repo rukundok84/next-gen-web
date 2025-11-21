@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, Home, Inbox, LucideBadgePoundSterling, PodcastIcon, Search, Settings, ShoppingBagIcon, ShoppingBasket, User2 } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,6 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { IconBrandProducthunt } from "@tabler/icons-react"
 
 // Menu items.
 const items = [
@@ -20,14 +21,19 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "admin/posts",
-    icon: Inbox,
+    title: "Products",
+    url: "/products/posts",
+    icon: ShoppingBagIcon,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    title: "Posts",
+    url: "/admin/posts",
+    icon: LucideBadgePoundSterling,
+  },
+  {
+    title: "Users",
+    url: "users",
+    icon: User2,
   },
   {
     title: "Search",
